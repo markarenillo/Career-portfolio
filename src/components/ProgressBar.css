@@ -1,0 +1,20 @@
+progress {
+  border: none;
+  width: 200px;
+  height: 40px;
+}
+
+progress::-webkit-progress-value {
+  border-radius: 100px;
+  background: #843232;
+  animation: progress-animation 5s forwards;
+}
+
+@keyframes progress-animation {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}

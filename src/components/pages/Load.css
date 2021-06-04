@@ -1,0 +1,183 @@
+* {
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none; /* IE 10+ */
+  -o-user-select: none;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: "Bahnschrift";
+  src: url("./../../fonts/BAHNSCHRIFT.TTF") format("ttf");
+}
+
+.loadPage-container {
+  background: rgb(175, 234, 220);
+  background: linear-gradient(
+    43deg,
+    rgba(175, 234, 220, 1) 0%,
+    rgba(69, 108, 125, 1) 34%,
+    rgba(30, 61, 90, 1) 49%,
+    rgba(19, 48, 80, 1) 54%,
+    rgba(14, 41, 75, 1) 58%,
+    rgba(4, 30, 66, 1) 92%
+  );
+  background-size: 400% 400%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  overflow: hidden;
+  animation: gradientAnimation 12s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.header-loadPage {
+  padding-left: 10vh;
+  align-self: stretch;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+}
+
+#loadingPill {
+  width: 9vh;
+  height: 9vh;
+  align-self: center;
+}
+
+#loadingPill rect {
+  stroke-dasharray: 230px;
+  stroke-dashoffset: 5550px;
+  animation: loadPillAnimation-stroke 5s forwards infinite;
+}
+
+@keyframes loadPillAnimation-stroke {
+  to {
+    stroke-dashoffset: 1px;
+  }
+}
+
+.mainText {
+  font-size: 1vh;
+  font-family: "Bahnschrift";
+  font-weight: lighter;
+  letter-spacing: 2px;
+  color: #c3e8da;
+  padding-left: 3vh;
+  align-self: center;
+}
+
+.headerClouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50vh;
+  height: 10vh;
+  align-self: center;
+  overflow: hidden;
+}
+
+.headerClouds img {
+  position: absolute;
+  bottom: 0;
+  max-width: 20vh;
+}
+
+.headerClouds img:nth-child(1) {
+  transform: translateX(50%);
+  animation: headerCloudsRight 3s ease-in-out forwards;
+}
+
+.headerClouds img:nth-child(2) {
+  transform: translateX(50%);
+  left: 50px;
+
+  animation: headerCloudsLeft 3s ease-in-out forwards;
+}
+
+@keyframes headerCloudsRight {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes headerCloudsLeft {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(250%);
+    opacity: 0;
+  }
+}
+
+.body-loadPage {
+  flex: 1 1 auto;
+  align-self: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 4vh;
+}
+
+#loadText {
+  display: block;
+  width: 85vh;
+}
+
+#loadText path {
+  stroke-dasharray: 250px;
+  stroke-dashoffset: 250px;
+  animation: loadTextAnimation-stroke 4s ease-in-out infinite,
+    loadTextAnimation-fill 3s ease-in-out forwards 1s;
+}
+
+@keyframes loadTextAnimation-stroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes loadTextAnimation-fill {
+  to {
+    fill: #c3e8da;
+  }
+}
+
+footer {
+  align-self: center;
+  font-family: "Bahnschrift";
+  font-weight: lighter;
+  font-size: 1vh;
+  padding-bottom: 4vh;
+  color: #c3e8da;
+}
